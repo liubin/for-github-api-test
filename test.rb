@@ -15,14 +15,16 @@ branches = client.branches 'liubin0329/for-github-api-test'
 #pp branches
 commits = []
 branches.each { |b|
-  commits = commits | client.commits('liubin0329/for-github-api-test',nil,{:branch => b.commit.sha})
+  commits = commits | client.commits('liubin0329/for-github-api-test',nil,{:sha => b.name})
 }
 #pp commits
+
+
 commits.each { |c|
   #pp c
   puts "------------------------------"
-  puts "author #{c.commit.author.name}"
-  puts "sha #{c.sha}"
+  #puts "author #{c.commit.author.name}"
+  #puts "sha #{c.sha}"
   puts "message #{c.commit.message}"
-  puts "html_url #{c.html_url}"
+  #puts "html_url #{c.html_url}"
 }
