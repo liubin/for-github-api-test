@@ -12,4 +12,14 @@ me = client.user login
 
 branches = client.branches 'liubin0329/for-github-api-test'
 
-pp branches
+#pp branches
+
+commits = client.commits 'liubin0329/for-github-api-test'
+
+
+commits.each { |c|
+  puts "sha #{c.sha}"
+  puts "message #{c.commit.message}"
+  puts "html_url #{c.html_url}"
+}
+
